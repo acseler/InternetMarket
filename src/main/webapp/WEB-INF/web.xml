@@ -5,9 +5,20 @@
 
 <web-app>
 
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>greetServlet</servlet-name>
+    <servlet-class>com.gwt.internetMarket.server.GreetingServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>greetServlet</servlet-name>
+    <url-pattern>/InternetMarket/greet</url-pattern>
+  </servlet-mapping>
+
   <!-- Default page to serve -->
   <welcome-file-list>
-    <welcome-file>SmartMarket.html</welcome-file>
+    <welcome-file>InternetMarket.html</welcome-file>
   </welcome-file-list>
 
 </web-app>
