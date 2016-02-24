@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>
   <!-- Inherit our applications main module.                      -->
-  <inherits name='com.gwt.internetMarket.InternetMarket'/>
+  <inherits name='com.gwt.internetMarket.InternetMarketJUnit'/>
 
   <!-- Specify the path to any remote services.                   -->
-  <servlet path="/InternetMarket/greet" class="com.gwt.internetMarket.server.GreetingServiceImpl" />
-
 </module>
