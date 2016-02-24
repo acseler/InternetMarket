@@ -1,4 +1,4 @@
-package com.gwt.internetMarket.server.DAO;
+package com.gwt.internetMarket.server.DAO.interfaces;
 
 import com.gwt.internetMarket.server.DAO.HibernateEntity.Category;
 import com.gwt.internetMarket.server.DAO.HibernateEntity.Good;
@@ -15,6 +15,6 @@ public interface GoodDao {
     List<Good> getGoods(Category category);
     List<Good> getGoods(String name);
     List<Good> getGoods(int price);
-    List<Good> getGoods(boolean avail);
+    List<Good> getGoods(char avail);
 
 }

@@ -1,4 +1,4 @@
-package com.gwt.internetMarket.server.DAO;
+package com.gwt.internetMarket.server.DAO.interfaces;
 
 import com.gwt.internetMarket.server.DAO.HibernateEntity.Category;
 

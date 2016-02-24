@@ -13,16 +13,24 @@ public class Manufacture {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "M_NAME")
-    private long mId;
+    private long id;
 
     @Column(name = "M_NAME")
-    private String mName;
+    private String name;
 
-    public long getmId() {
-        return mId;
+    public long getId() {
+        return id;
     }
 
-    public void setmId(long mId) {
-        this.mId = mId;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
