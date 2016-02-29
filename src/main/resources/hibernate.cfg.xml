@@ -14,9 +14,9 @@
     <!--<property name="hbm2ddl.auto">create</property>-->
     <property name="show_sql">true</property>
 
-    <mapping class="com.gwt.internetMarket.server.DAO.HibernateEntity.Category"/>
-    <mapping class="com.gwt.internetMarket.server.DAO.HibernateEntity.Good"/>
-    <mapping class="com.gwt.internetMarket.server.DAO.HibernateEntity.Manufacture"/>
+    <mapping class="com.gwt.internetMarket.shared.CategoryDao"/>
+    <mapping class="com.gwt.internetMarket.shared.GoodDao"/>
+    <mapping class="com.gwt.internetMarket.shared.ManufactureDao"/>
 
   </session-factory>
 </hibernate-configuration>

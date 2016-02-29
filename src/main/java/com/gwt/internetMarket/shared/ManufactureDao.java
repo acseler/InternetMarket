@@ -1,6 +1,7 @@
-package com.gwt.internetMarket.server.DAO.HibernateEntity;
+package com.gwt.internetMarket.shared;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by boduill on 24.02.16.
@@ -8,11 +9,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "MANUFACTURES")
-public class Manufacture {
+public class ManufactureDao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "M_NAME")
+    @Column(name = "M_ID")
     private long id;
 
     @Column(name = "M_NAME")
@@ -32,5 +33,13 @@ public class Manufacture {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Manufacture{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

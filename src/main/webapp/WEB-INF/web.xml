@@ -8,12 +8,12 @@
   <!-- Servlets -->
   <servlet>
     <servlet-name>greetServlet</servlet-name>
-    <servlet-class>com.gwt.internetMarket.server.GreetingServiceImpl</servlet-class>
+    <servlet-class>com.gwt.internetMarket.server.GoodServiceImpl</servlet-class>
   </servlet>
 
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/InternetMarket/greet</url-pattern>
+    <url-pattern>/InternetMarket/goodService</url-pattern>
   </servlet-mapping>
 
   <!-- Default page to serve -->

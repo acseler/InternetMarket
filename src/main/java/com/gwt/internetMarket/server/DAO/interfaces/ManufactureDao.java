@@ -1,7 +1,5 @@
 package com.gwt.internetMarket.server.DAO.interfaces;
 
-import com.gwt.internetMarket.server.DAO.HibernateEntity.Manufacture;
-
 import java.util.List;
 
 /**
@@ -9,7 +7,7 @@ import java.util.List;
  */
 public interface ManufactureDao {
 
-    List<Manufacture> getManufacture();
-    List<Manufacture> getManufacture(String name);
+    List<com.gwt.internetMarket.shared.ManufactureDao> getManufacture();
+    com.gwt.internetMarket.shared.ManufactureDao getManufacture(String name);
 
 }

@@ -1,13 +1,14 @@
-package com.gwt.internetMarket.server.DAO.HibernateEntity;
+package com.gwt.internetMarket.shared;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by boduill on 24.02.16.
  */
 @Entity
 @Table(name = "GOODS")
-public class Good {
+public class GoodDao implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,11 +20,11 @@ public class Good {
 
     @OneToOne
     @JoinColumn(name = "C_ID")
-    private Category category;
+    private CategoryDao category;
 
     @OneToOne
     @JoinColumn(name = "M_ID")
-    private Manufacture manufacture;
+    private ManufactureDao manufacture;
 
     @Column(name = "G_PRICE")
     private int price;
@@ -54,20 +55,20 @@ public class Good {
         this.name = name;
     }
 
-    public Category getCategory() {
+    public CategoryDao getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategory(CategoryDao categoryDao) {
+        this.category = categoryDao;
     }
 
-    public Manufacture getManufacture() {
+    public ManufactureDao getManufacture() {
         return manufacture;
     }
 
-    public void setManufacture(Manufacture manufacture) {
-        this.manufacture = manufacture;
+    public void setManufacture(ManufactureDao manufactureDao) {
+        this.manufacture = manufactureDao;
     }
 
     public int getPrice() {
@@ -100,5 +101,18 @@ public class Good {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Good{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category=" + category +
+                ", manufacture=" + manufacture +
+                ", price=" + price +
+                ", avail=" + avail +
+                ", image='" + image + '\'' +
+                '}';
     }
 }

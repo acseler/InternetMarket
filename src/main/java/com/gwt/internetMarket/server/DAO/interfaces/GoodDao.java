@@ -1,9 +1,5 @@
 package com.gwt.internetMarket.server.DAO.interfaces;
 
-import com.gwt.internetMarket.server.DAO.HibernateEntity.Category;
-import com.gwt.internetMarket.server.DAO.HibernateEntity.Good;
-import com.gwt.internetMarket.server.DAO.HibernateEntity.Manufacture;
-
 import java.util.List;
 
 /**
@@ -11,10 +7,10 @@ import java.util.List;
  */
 public interface GoodDao {
 
-    List<Good> getGoods(Manufacture manufacture);
-    List<Good> getGoods(Category category);
-    List<Good> getGoods(String name);
-    List<Good> getGoods(int price);
-    List<Good> getGoods(char avail);
+    List<com.gwt.internetMarket.shared.GoodDao> getGoodsByManufacture(String manufacture);
+    List<com.gwt.internetMarket.shared.GoodDao> getGoodsByCategory(String category);
+    List<com.gwt.internetMarket.shared.GoodDao> getGoods(String name);
+    List<com.gwt.internetMarket.shared.GoodDao> getGoods(int price);
+    List<com.gwt.internetMarket.shared.GoodDao> getGoods(char avail);
 
 }

@@ -1,8 +1,7 @@
 package com.gwt.internetMarket.server.DAO;
 
-import com.gwt.internetMarket.server.DAO.HibernateEntity.Manufacture;
+import com.gwt.internetMarket.shared.ManufactureDao;
 import com.gwt.internetMarket.server.DAO.HibernateUtil.HibernateUtility;
-import com.gwt.internetMarket.server.DAO.interfaces.ManufactureDao;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -13,26 +12,26 @@ import java.util.List;
 /**
  * Created by boduill on 24.02.16.
  */
-public class ManufacturesDaoImpl implements ManufactureDao {
+public class ManufacturesDaoImpl implements com.gwt.internetMarket.server.DAO.interfaces.ManufactureDao {
 
-    public List<Manufacture> getManufacture() {
+    public List<ManufactureDao> getManufacture() {
         Session session = HibernateUtility.getSessionFactory().openSession();
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(Manufacture.class);
-        List<Manufacture> manufactureList = new ArrayList<Manufacture>(criteria.list());
+        Criteria criteria = session.createCriteria(ManufactureDao.class);
+        List<ManufactureDao> manufactureDaoList = new ArrayList<ManufactureDao>(criteria.list());
         session.getTransaction().commit();
         session.close();
-        return manufactureList;
+        return manufactureDaoList;
     }
 
-    public List<Manufacture> getManufacture(String name) {
+    public ManufactureDao getManufacture(String name) {
         Session session = HibernateUtility.getSessionFactory().openSession();
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(Manufacture.class);
-        List<Manufacture> manufactureList = new ArrayList<Manufacture>(criteria.
+        Criteria criteria = session.createCriteria(ManufactureDao.class);
+        List<ManufactureDao> manufactureDaoList = new ArrayList<ManufactureDao>(criteria.
                 add(Restrictions.like("name", name)).list());
         session.getTransaction().commit();
         session.close();
-        return manufactureList;
+        return manufactureDaoList.get(0);
     }
 }

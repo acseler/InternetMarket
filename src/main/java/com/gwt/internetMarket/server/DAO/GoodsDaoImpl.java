@@ -1,10 +1,7 @@
 package com.gwt.internetMarket.server.DAO;
 
-import com.gwt.internetMarket.server.DAO.HibernateEntity.Category;
-import com.gwt.internetMarket.server.DAO.HibernateEntity.Good;
-import com.gwt.internetMarket.server.DAO.HibernateEntity.Manufacture;
+import com.gwt.internetMarket.shared.GoodDao;
 import com.gwt.internetMarket.server.DAO.HibernateUtil.HibernateUtility;
-import com.gwt.internetMarket.server.DAO.interfaces.GoodDao;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -15,55 +12,55 @@ import java.util.List;
 /**
  * Created by boduill on 24.02.16.
  */
-public class GoodsDaoImpl implements GoodDao {
+public class GoodsDaoImpl implements com.gwt.internetMarket.server.DAO.interfaces.GoodDao {
 
-    public List<Good> getGoods(Manufacture manufacture) {
+    public List<GoodDao> getGoodsByManufacture(String manufacture) {
         Session session = HibernateUtility.getSessionFactory().openSession();
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(Good.class);
-        List<Good> goodList = new ArrayList<Good>(criteria.add(Restrictions.eq("m_id", manufacture)).list());
+        Criteria criteria = session.createCriteria(GoodDao.class);
+        List<GoodDao> goodDaoList = new ArrayList<GoodDao>(criteria.add(Restrictions.eq("manufacture", new ManufacturesDaoImpl().getManufacture(manufacture))).list());
         session.getTransaction().commit();
         session.close();
-        return goodList;
+        return goodDaoList;
     }
 
-    public List<Good> getGoods(Category category) {
+    public List<GoodDao> getGoodsByCategory(String category) {
         Session session = HibernateUtility.getSessionFactory().openSession();
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(Good.class);
-        List<Good> goodList = new ArrayList<Good>(criteria.add(Restrictions.eq("c_id", category)).list());
+        Criteria criteria = session.createCriteria(GoodDao.class);
+        List<GoodDao> goodDaoList = new ArrayList<GoodDao>(criteria.add(Restrictions.eq("category", new CategoriesDaoImpl().getCategories(category))).list());
         session.getTransaction().commit();
         session.close();
-        return goodList;
+        return goodDaoList;
     }
 
-    public List<Good> getGoods(String name) {
+    public List<GoodDao> getGoods(String name) {
         Session session = HibernateUtility.getSessionFactory().openSession();
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(Good.class);
-        List<Good> goodList = new ArrayList<Good>(criteria.add(Restrictions.like("g_name", name)).list());
+        Criteria criteria = session.createCriteria(GoodDao.class);
+        List<GoodDao> goodDaoList = new ArrayList<GoodDao>(criteria.add(Restrictions.like("name", "%" + name + "%")).list());
         session.getTransaction().commit();
         session.close();
-        return goodList;
+        return goodDaoList;
     }
 
-    public List<Good> getGoods(int price) {
+    public List<GoodDao> getGoods(int price) {
         Session session = HibernateUtility.getSessionFactory().openSession();
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(Good.class);
-        List<Good> goodList = new ArrayList<Good>(criteria.add(Restrictions.eq("g_price", price)).list());
+        Criteria criteria = session.createCriteria(GoodDao.class);
+        List<GoodDao> goodDaoList = new ArrayList<GoodDao>(criteria.add(Restrictions.eq("price", price)).list());
         session.getTransaction().commit();
         session.close();
-        return goodList;
+        return goodDaoList;
     }
 
-    public List<Good> getGoods(char avail) {
+    public List<GoodDao> getGoods(char avail) {
         Session session = HibernateUtility.getSessionFactory().openSession();
         session.beginTransaction();
-        Criteria criteria = session.createCriteria(Good.class);
-        List<Good> goodList = new ArrayList<Good>(criteria.add(Restrictions.eq("g_avail", avail)).list());
+        Criteria criteria = session.createCriteria(GoodDao.class);
+        List<GoodDao> goodDaoList = new ArrayList<GoodDao>(criteria.add(Restrictions.eq("avail", avail)).list());
         session.getTransaction().commit();
         session.close();
-        return goodList;
+        return goodDaoList;
     }
 }

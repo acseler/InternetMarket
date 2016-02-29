@@ -1,0 +1,13 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:cellview="urn:import:com.google.gwt.user.cellview.client">
+    <g:HTMLPanel>
+        <g:VerticalPanel styleName="col-md-4">
+            <cellview:CellTree ui:field="tree"/>
+        </g:VerticalPanel>
+        <g:VerticalPanel styleName="col-md-8">
+            <cellview:CellList ui:field="goodList"/>
+        </g:VerticalPanel>
+
+    </g:HTMLPanel>
+</ui:UiBinder>

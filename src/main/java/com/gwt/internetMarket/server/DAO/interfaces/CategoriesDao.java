@@ -1,6 +1,6 @@
 package com.gwt.internetMarket.server.DAO.interfaces;
 
-import com.gwt.internetMarket.server.DAO.HibernateEntity.Category;
+import com.gwt.internetMarket.shared.Category;
 
 import java.util.List;
 
@@ -10,6 +10,5 @@ import java.util.List;
 public interface CategoriesDao {
 
     List<Category> getCategories();
-    List<Category> getCategories(String name);
 
 }
