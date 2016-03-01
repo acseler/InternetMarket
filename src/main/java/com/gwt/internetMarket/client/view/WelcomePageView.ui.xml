@@ -2,12 +2,46 @@
              xmlns:g='urn:import:com.google.gwt.user.client.ui'
              xmlns:cellview="urn:import:com.google.gwt.user.cellview.client">
     <g:HTMLPanel>
-        <g:VerticalPanel styleName="col-md-4">
-            <cellview:CellTree ui:field="tree"/>
-        </g:VerticalPanel>
-        <g:VerticalPanel styleName="col-md-8">
+        <div class="row">
+            <img src="img/Logo.png" alt="SMARTMARKET" class="col-md-4"/>
+            <div class="col-md-8">
+                <g:HorizontalPanel>
+                    <g:TextBox styleName="form-control input-sm" ui:field="search"/>
+                    <g:Button styleName="btn btn-primary btn-sm" ui:field="searchButton" text="Search"/>
+                </g:HorizontalPanel>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Categories</h3>
+                </div>
+                <div class="panel-body">
+                    <cellview:CellTree ui:field="tree"/>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Manufactures</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        <cellview:CellList ui:field="manufactureDaoCellList"/>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <g:VerticalPanel styleName="col-md-offset-1 col-md-7" ui:field="goodsViewPanel">
+            <g:Label ui:field="thereAreNoGoods" visible="false" text="Goods for your request doesn't exist."/>
             <cellview:CellList ui:field="goodList"/>
         </g:VerticalPanel>
-
+        <g:HorizontalPanel styleName="col-md-offset-1 col-md-7" ui:field="goodViewPanel" visible="false">
+            <g:Image ui:field="goodImage"/>
+            <g:Label ui:field="goodNameLabel"/>
+            <g:Label ui:field="goodPriceLabel"/>
+            <g:Label ui:field="goodDescriptionLable"/>
+        </g:HorizontalPanel>
     </g:HTMLPanel>
 </ui:UiBinder>

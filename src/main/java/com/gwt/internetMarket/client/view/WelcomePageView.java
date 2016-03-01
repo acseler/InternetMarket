@@ -1,37 +1,27 @@
 package com.gwt.internetMarket.client.view;
 
-import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.Style;
-import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.cellview.client.AbstractHasData;
 import com.google.gwt.user.cellview.client.CellList;
 import com.google.gwt.user.cellview.client.CellTree;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.StackLayoutPanel;
+import com.google.gwt.user.cellview.client.TreeNode;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.*;
 import com.gwt.internetMarket.client.presenters.TreeModel.CategoryTreeModel;
 import com.gwt.internetMarket.client.presenters.WelcomePagePresenter;
+import com.gwt.internetMarket.client.view.renderers.GoodCellRenderer;
+import com.gwt.internetMarket.client.view.renderers.ManufactureCellRenderer;
+import com.gwt.internetMarket.client.view.treeResources.CategoryTreeResources;
 import com.gwt.internetMarket.shared.GoodDao;
-
-import java.util.Arrays;
+import com.gwt.internetMarket.shared.ManufactureDao;
 
 /**
  * Created by boduill on 28.02.16.
  */
 public class WelcomePageView extends Composite implements WelcomePagePresenter.Display {
-
-    @Override
-    public AbstractHasData getCellList() {
-        return goodList;
-    }
-
-    @Override
-    public void cellListRedraw() {
-        goodList.redraw();
-    }
 
     interface WelcomePageViewUiBinder extends UiBinder<HTMLPanel, WelcomePageView> {
     }
@@ -44,13 +34,107 @@ public class WelcomePageView extends Composite implements WelcomePagePresenter.D
     @UiField(provided = true)
     CellList<GoodDao> goodList;
 
-    public WelcomePageView(final GoodCellRenderer renderer, final CategoryTreeModel categoryTreeModel) {
-        CategoryTreeResources treeResources = GWT.create(CategoryTreeResources.class);
-        tree = new CellTree(categoryTreeModel, null, treeResources);
-        goodList = new CellList<GoodDao>(renderer);
+    @UiField(provided = true)
+    CellList<ManufactureDao> manufactureDaoCellList;
+
+    @UiField
+    TextBox search;
+
+    @UiField
+    Button searchButton;
+
+    @UiField
+    Label thereAreNoGoods;
+
+    @UiField
+    Image goodImage;
+
+    @UiField
+    Label goodNameLabel;
+
+    @UiField
+    Label goodPriceLabel;
+
+    @UiField
+    Label goodDescriptionLable;
+
+    @UiField
+    HorizontalPanel goodViewPanel;
+
+    @UiField
+    VerticalPanel goodsViewPanel;
+
+
+    public WelcomePageView(final GoodCellRenderer renderer, final CategoryTreeModel categoryTreeModel, ManufactureCellRenderer manufactureCellRenderer) {
+        final CategoryTreeResources treeResources = GWT.create(CategoryTreeResources.class);
+        this.tree = new CellTree(categoryTreeModel, null, treeResources);
+        TreeNode rootNode = tree.getRootTreeNode();
+        TreeNode openNode = rootNode.setChildOpen(0, true, true);
+        this.tree.setAnimationEnabled(true);
+        this.goodList = new CellList<GoodDao>(renderer);
+        this.manufactureDaoCellList = new CellList<ManufactureDao>(manufactureCellRenderer);
         initWidget(ourUiBinder.createAndBindUi(this));
     }
 
+    @Override
+    public AbstractHasData<GoodDao> getCellListGoods() {
+        return goodList;
+    }
+
+    @Override
+    public AbstractHasData<ManufactureDao> getCellListManufacture() {
+        return manufactureDaoCellList;
+    }
+
+    @Override
+    public Image getGoodImage() {
+        return goodImage;
+    }
+
+    @Override
+    public HasValue<String> getSearchField() {
+        return search;
+    }
+
+    @Override
+    public HasVisibility getThereAreNoGoods() {
+        return thereAreNoGoods;
+    }
+
+    @Override
+    public HasVisibility getGoodViewPanel() {
+        return goodViewPanel;
+    }
+
+    @Override
+    public HasVisibility getGoodsViewPanel() {
+        return goodsViewPanel;
+    }
+
+    @Override
+    public HasClickHandlers getSearchButton() {
+        return searchButton;
+    }
+
+    @Override
+    public HasText getGoodNameLabel() {
+        return goodNameLabel;
+    }
+
+    @Override
+    public HasText getGoodPriceLabel() {
+        return goodPriceLabel;
+    }
+
+    @Override
+    public HasText getGoodDescriptionLabel() {
+        return goodDescriptionLable;
+    }
+
+    @Override
+    public void cellListRedraw() {
+        goodList.redraw();
+    }
 
 
 }

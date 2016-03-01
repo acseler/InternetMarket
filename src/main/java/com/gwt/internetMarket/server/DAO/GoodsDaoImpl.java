@@ -38,7 +38,7 @@ public class GoodsDaoImpl implements com.gwt.internetMarket.server.DAO.interface
         Session session = HibernateUtility.getSessionFactory().openSession();
         session.beginTransaction();
         Criteria criteria = session.createCriteria(GoodDao.class);
-        List<GoodDao> goodDaoList = new ArrayList<GoodDao>(criteria.add(Restrictions.like("name", "%" + name + "%")).list());
+        List<GoodDao> goodDaoList = new ArrayList<GoodDao>(criteria.add(Restrictions.like("name", "%" + name + "%").ignoreCase()).list());
         session.getTransaction().commit();
         session.close();
         return goodDaoList;

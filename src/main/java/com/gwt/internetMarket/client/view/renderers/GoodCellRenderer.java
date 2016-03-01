@@ -1,4 +1,4 @@
-package com.gwt.internetMarket.client.view;
+package com.gwt.internetMarket.client.view.renderers;
 
 import com.google.gwt.cell.client.AbstractCell;
 import com.google.gwt.cell.client.ValueUpdater;
@@ -6,8 +6,11 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.BrowserEvents;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.NativeEvent;
+import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.uibinder.client.UiRenderer;
+import com.google.gwt.user.client.Window;
+import com.gwt.internetMarket.client.events.GoodItemSelectEvent;
 import com.gwt.internetMarket.shared.GoodDao;
 
 /**
@@ -21,15 +24,18 @@ public class GoodCellRenderer extends AbstractCell<GoodDao> {
         void onBrowserEvent(GoodCellRenderer o, NativeEvent e, Element p, GoodDao n);
     }
 
+    private final HandlerManager eventBus;
     private final Renderer uiRenderer = GWT.create(Renderer.class);
 
-    public GoodCellRenderer() {
+    public GoodCellRenderer(HandlerManager eventBus) {
         super(BrowserEvents.CLICK);
+        this.eventBus = eventBus;
     }
 
     @Override
     public void onBrowserEvent(Context context, Element parent, GoodDao value,
                                NativeEvent event, ValueUpdater<GoodDao> valueUpdater) {
+        eventBus.fireEvent(new GoodItemSelectEvent(value));
         uiRenderer.onBrowserEvent(this, event, parent, value);
     }
 

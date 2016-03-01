@@ -4,6 +4,7 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.gwt.internetMarket.client.service.IGoodService;
 import com.gwt.internetMarket.server.DAO.CategoriesDaoImpl;
 import com.gwt.internetMarket.server.DAO.GoodsDaoImpl;
+import com.gwt.internetMarket.server.DAO.ManufacturesDaoImpl;
 import com.gwt.internetMarket.shared.GoodDao;
 import com.gwt.internetMarket.shared.ManufactureDao;
 import com.gwt.internetMarket.shared.Category;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class GoodServiceImpl extends RemoteServiceServlet implements IGoodService {
     public List<ManufactureDao> getManufactures() {
-        return null;
+        return new ManufacturesDaoImpl().getManufacture();
     }
 
     public List<Category> getCategories() {
@@ -31,7 +32,7 @@ public class GoodServiceImpl extends RemoteServiceServlet implements IGoodServic
     }
 
     public List<GoodDao> getGoodsByName(String name) {
-        return null;
+        return new GoodsDaoImpl().getGoods(name);
     }
 
     public List<GoodDao> getGoodsByCategory(String category) {
@@ -39,7 +40,7 @@ public class GoodServiceImpl extends RemoteServiceServlet implements IGoodServic
     }
 
     public List<GoodDao> getGoodsByManufacture(String manufacture) {
-        return null;
+        return new GoodsDaoImpl().getGoodsByManufacture(manufacture);
     }
 
     public List<GoodDao> getGoodByAvail(char avail) {

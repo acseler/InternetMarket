@@ -1,4 +1,4 @@
-package com.gwt.internetMarket.client.view;
+package com.gwt.internetMarket.client.view.treeResources;
 
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.cellview.client.CellTree;

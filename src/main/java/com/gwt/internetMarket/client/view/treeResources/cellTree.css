@@ -38,7 +38,7 @@
     color: #4b4a4a;
     cursor: hand;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 0;
     padding: 3px 13px 3px 10px !important;
 }
 
@@ -51,7 +51,6 @@
 }
 
 .cellTreeKeyboardSelectedItem {
-    background-color: #ffc;
     outline: none;
 }
 

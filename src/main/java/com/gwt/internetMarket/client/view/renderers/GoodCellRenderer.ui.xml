@@ -1,0 +1,36 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+    <ui:with field="name" type="java.lang.String"/>
+    <ui:with field="price" type="java.lang.String"/>
+    <ui:with field="description" type="java.lang.String"/>
+    <ui:with field="image" type="java.lang.String"/>
+
+    <!--<div class="col-sm-6 col-md-4">-->
+        <!--<div class="thumbnail">-->
+            <!--<img src="/img/{image}" alt="Image" class="img-responsive img-height-200"/>-->
+            <!--<div class="caption">-->
+                <!--<h3><ui:text from='{name}'/></h3>-->
+                <!--<p><ui:text from='{description}'/></p>-->
+                <!--<p><ui:text from='{price}'/></p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="prod_box_wrap">
+        <div class="prod_box">
+            <div class="prod_img_wrap">
+                <div class="product_img">
+                    <img src="/img/{image}" title="image"/>
+                </div>
+            </div>
+            <div class="product_title">
+                <ui:text from='{name}'/>
+            </div>
+            <div class="prod_price">
+                <span class="price"><ui:text from='{price}'/></span>
+            </div>
+            <ul class="gtile-short-detail">
+                <li><ui:text from='{description}'/></li>
+            </ul>
+        </div>
+    </div>
+</ui:UiBinder>
