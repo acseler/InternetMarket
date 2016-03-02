@@ -27,7 +27,7 @@ public class CategoriesDaoImpl implements CategoriesDao {
         return createTreeHierarchy(categoryDaoList);
     }
 
-    public CategoryDao getCategories(String name) {
+    public CategoryDao getCategory(String name) {
         Session session = HibernateUtility.getSessionFactory().openSession();
         session.beginTransaction();
         Criteria criteria = session.createCriteria(CategoryDao.class);

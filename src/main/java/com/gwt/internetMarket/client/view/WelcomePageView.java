@@ -8,9 +8,9 @@ import com.google.gwt.user.cellview.client.AbstractHasData;
 import com.google.gwt.user.cellview.client.CellList;
 import com.google.gwt.user.cellview.client.CellTree;
 import com.google.gwt.user.cellview.client.TreeNode;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
-import com.gwt.internetMarket.client.presenters.TreeModel.CategoryTreeModel;
+import com.google.gwt.view.client.TreeViewModel;
+import com.gwt.internetMarket.client.view.TreeModel.CategoryTreeModel;
 import com.gwt.internetMarket.client.presenters.WelcomePagePresenter;
 import com.gwt.internetMarket.client.view.renderers.GoodCellRenderer;
 import com.gwt.internetMarket.client.view.renderers.ManufactureCellRenderer;
@@ -59,7 +59,7 @@ public class WelcomePageView extends Composite implements WelcomePagePresenter.D
     Label goodDescriptionLable;
 
     @UiField
-    HorizontalPanel goodViewPanel;
+    HTMLPanel goodViewPanel;
 
     @UiField
     VerticalPanel goodsViewPanel;
@@ -68,12 +68,21 @@ public class WelcomePageView extends Composite implements WelcomePagePresenter.D
     public WelcomePageView(final GoodCellRenderer renderer, final CategoryTreeModel categoryTreeModel, ManufactureCellRenderer manufactureCellRenderer) {
         final CategoryTreeResources treeResources = GWT.create(CategoryTreeResources.class);
         this.tree = new CellTree(categoryTreeModel, null, treeResources);
-        TreeNode rootNode = tree.getRootTreeNode();
-        TreeNode openNode = rootNode.setChildOpen(0, true, true);
         this.tree.setAnimationEnabled(true);
         this.goodList = new CellList<GoodDao>(renderer);
         this.manufactureDaoCellList = new CellList<ManufactureDao>(manufactureCellRenderer);
         initWidget(ourUiBinder.createAndBindUi(this));
+
+    }
+
+    @Override
+    public TreeNode getRootTreeNode() {
+        return tree.getRootTreeNode();
+    }
+
+    @Override
+    public TreeViewModel getTreeViewModel() {
+        return tree.getTreeViewModel();
     }
 
     @Override

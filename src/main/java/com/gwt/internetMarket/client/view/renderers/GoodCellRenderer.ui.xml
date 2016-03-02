@@ -26,7 +26,7 @@
                 <ui:text from='{name}'/>
             </div>
             <div class="prod_price">
-                <span class="price"><ui:text from='{price}'/></span>
+               <ui:text from='{price}'/>
             </div>
             <ul class="gtile-short-detail">
                 <li><ui:text from='{description}'/></li>

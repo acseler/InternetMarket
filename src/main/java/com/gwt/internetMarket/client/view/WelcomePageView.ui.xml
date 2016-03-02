@@ -2,13 +2,17 @@
              xmlns:g='urn:import:com.google.gwt.user.client.ui'
              xmlns:cellview="urn:import:com.google.gwt.user.cellview.client">
     <g:HTMLPanel>
-        <div class="row">
-            <img src="img/Logo.png" alt="SMARTMARKET" class="col-md-4"/>
-            <div class="col-md-8">
-                <g:HorizontalPanel>
-                    <g:TextBox styleName="form-control input-sm" ui:field="search"/>
-                    <g:Button styleName="btn btn-primary btn-sm" ui:field="searchButton" text="Search"/>
-                </g:HorizontalPanel>
+        <div class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <img src="img/Logo.png" alt="SMARTMARKET"/>
+                </div>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <g:TextBox styleName="form-control" ui:field="search"/>
+                    </div>
+                    <g:Button styleName="btn btn-primary" ui:field="searchButton" text="Search"/>
+                </form>
             </div>
         </div>
         <div class="col-md-3">
@@ -37,11 +41,29 @@
             <g:Label ui:field="thereAreNoGoods" visible="false" text="Goods for your request doesn't exist."/>
             <cellview:CellList ui:field="goodList"/>
         </g:VerticalPanel>
-        <g:HorizontalPanel styleName="col-md-offset-1 col-md-7" ui:field="goodViewPanel" visible="false">
-            <g:Image ui:field="goodImage"/>
-            <g:Label ui:field="goodNameLabel"/>
-            <g:Label ui:field="goodPriceLabel"/>
-            <g:Label ui:field="goodDescriptionLable"/>
-        </g:HorizontalPanel>
+        <g:HTMLPanel styleName="col-md-offset-1 col-md-7" ui:field="goodViewPanel" visible="false">
+            <div class="prod_box_big">
+                <div>
+                    <div class="product_img_big">
+                        <g:Image ui:field="goodImage"/>
+                    </div>
+                    <div class="details_big_box">
+                        <g:Label ui:field="goodNameLabel" styleName="product_title_big"/>
+                        <div class="specifications">
+                            <div class="specifications">
+                                <g:Label ui:field="goodDescriptionLable" styleName="blue"/>
+                            </div>
+                            <g:Label ui:field="goodPriceLabel" styleName="prod_price"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+            </div>
+            <!--<g:Image ui:field="goodImage"/>-->
+            <!--<g:Label ui:field="goodNameLabel"/>-->
+            <!--<g:Label ui:field="goodPriceLabel"/>-->
+            <!--<g:Label ui:field="goodDescriptionLable"/>-->
+        </g:HTMLPanel>
     </g:HTMLPanel>
 </ui:UiBinder>

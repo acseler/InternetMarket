@@ -1,39 +1,32 @@
-package com.gwt.internetMarket.client.presenters.TreeModel;
+package com.gwt.internetMarket.client.view.TreeModel;
 
 import com.google.gwt.cell.client.AbstractCell;
 import com.google.gwt.cell.client.Cell;
 import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
-import com.google.gwt.user.cellview.client.TreeNode;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.SelectionChangeEvent;
 import com.google.gwt.view.client.SingleSelectionModel;
 import com.google.gwt.view.client.TreeViewModel;
 import com.gwt.internetMarket.client.events.CategoryTreeNodeSelectEvent;
+import com.gwt.internetMarket.client.presenters.WelcomePagePresenter;
 import com.gwt.internetMarket.shared.Category;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by boduill on 27.02.16.
  */
-public class CategoryTreeModel implements TreeViewModel {
+public class CategoryTreeModel implements TreeViewModel, WelcomePagePresenter.HelpTree {
 
     private List<Category> categories = new ArrayList<Category>();
+    private final SingleSelectionModel<Category> categorySingleSelectionModel = new SingleSelectionModel<Category>();
     private final SingleSelectionModel<String> selectionModel = new SingleSelectionModel<String>();
 
-    public CategoryTreeModel(List<Category> categories, final HandlerManager eventBus) {
+    public CategoryTreeModel(final List<Category> categories, final HandlerManager eventBus) {
         this.categories = categories;
-        this.selectionModel.addSelectionChangeHandler(new SelectionChangeEvent.Handler() {
-            @Override
-            public void onSelectionChange(SelectionChangeEvent event) {
-                eventBus.fireEvent(new CategoryTreeNodeSelectEvent(selectionModel.getSelectedObject()));
-            }
-        });
     }
 
     @Override
@@ -48,7 +41,7 @@ public class CategoryTreeModel implements TreeViewModel {
                     }
                 }
             };
-            return new DefaultNodeInfo<Category>(dataProvider, cell);
+            return new DefaultNodeInfo<Category>(dataProvider, cell, categorySingleSelectionModel, null);
         } else if (value instanceof Category) {
             ListDataProvider<String> dataProvider = new ListDataProvider<String>(((Category) value).getSubCategories());
             return new DefaultNodeInfo<String>(dataProvider, new TextCell(), selectionModel, null);
@@ -65,5 +58,19 @@ public class CategoryTreeModel implements TreeViewModel {
     }
 
 
+    @Override
+    public SingleSelectionModel<Category> getSingleSelectionModelCategory() {
+        return categorySingleSelectionModel;
+    }
+
+    @Override
+    public SingleSelectionModel<String> getSingleSelectionModelItem() {
+        return selectionModel;
+    }
+
+    @Override
+    public List<Category> getCategoryList() {
+        return categories;
+    }
 }
 

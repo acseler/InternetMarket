@@ -6,5 +6,5 @@ import com.google.gwt.user.client.ui.HasWidgets;
  * Created by boduill on 25.02.16.
  */
 public interface Presenter {
-    void go(final HasWidgets container);
+    void go(final HasWidgets contasiner);
 }

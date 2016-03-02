@@ -28,7 +28,7 @@ public class GoodsDaoImpl implements com.gwt.internetMarket.server.DAO.interface
         Session session = HibernateUtility.getSessionFactory().openSession();
         session.beginTransaction();
         Criteria criteria = session.createCriteria(GoodDao.class);
-        List<GoodDao> goodDaoList = new ArrayList<GoodDao>(criteria.add(Restrictions.eq("category", new CategoriesDaoImpl().getCategories(category))).list());
+        List<GoodDao> goodDaoList = new ArrayList<GoodDao>(criteria.add(Restrictions.eq("category", new CategoriesDaoImpl().getCategory(category))).list());
         session.getTransaction().commit();
         session.close();
         return goodDaoList;
@@ -44,23 +44,4 @@ public class GoodsDaoImpl implements com.gwt.internetMarket.server.DAO.interface
         return goodDaoList;
     }
 
-    public List<GoodDao> getGoods(int price) {
-        Session session = HibernateUtility.getSessionFactory().openSession();
-        session.beginTransaction();
-        Criteria criteria = session.createCriteria(GoodDao.class);
-        List<GoodDao> goodDaoList = new ArrayList<GoodDao>(criteria.add(Restrictions.eq("price", price)).list());
-        session.getTransaction().commit();
-        session.close();
-        return goodDaoList;
-    }
-
-    public List<GoodDao> getGoods(char avail) {
-        Session session = HibernateUtility.getSessionFactory().openSession();
-        session.beginTransaction();
-        Criteria criteria = session.createCriteria(GoodDao.class);
-        List<GoodDao> goodDaoList = new ArrayList<GoodDao>(criteria.add(Restrictions.eq("avail", avail)).list());
-        session.getTransaction().commit();
-        session.close();
-        return goodDaoList;
-    }
 }

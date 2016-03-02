@@ -15,10 +15,7 @@ import java.util.List;
 public interface IGoodService extends RemoteService {
     List<ManufactureDao> getManufactures();
     List<Category> getCategories();
-    Category getCategoryByName(String name);
-    List<GoodDao> getGoods();
     List<GoodDao> getGoodsByName(String name);
     List<GoodDao> getGoodsByCategory(String category);
     List<GoodDao> getGoodsByManufacture(String manufacture);
-    List<GoodDao> getGoodByAvail(char avail);
 }

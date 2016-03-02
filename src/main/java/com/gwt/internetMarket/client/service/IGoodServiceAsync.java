@@ -13,10 +13,7 @@ import java.util.List;
 public interface IGoodServiceAsync {
     void getManufactures(AsyncCallback<List<ManufactureDao>> callback);
     void getCategories(AsyncCallback<List<Category>> callback);
-    void getCategoryByName(String name, AsyncCallback<Category> callback);
-    void getGoods(AsyncCallback<List<GoodDao>> callback);
     void getGoodsByName(String name, AsyncCallback<List<GoodDao>> callback);
     void getGoodsByCategory(String category, AsyncCallback<List<GoodDao>> callback);
     void getGoodsByManufacture(String manufacture, AsyncCallback<List<GoodDao>> callback);
-    void getGoodByAvail(char Avail, AsyncCallback<List<GoodDao>> callback);
 }

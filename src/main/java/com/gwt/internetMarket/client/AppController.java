@@ -10,7 +10,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.gwt.internetMarket.client.presenters.Presenter;
-import com.gwt.internetMarket.client.presenters.TreeModel.CategoryTreeModel;
+import com.gwt.internetMarket.client.view.TreeModel.CategoryTreeModel;
 import com.gwt.internetMarket.client.presenters.WelcomePagePresenter;
 import com.gwt.internetMarket.client.service.IGoodServiceAsync;
 import com.gwt.internetMarket.client.view.renderers.GoodCellRenderer;
@@ -18,7 +18,6 @@ import com.gwt.internetMarket.client.view.WelcomePageView;
 import com.gwt.internetMarket.client.view.renderers.ManufactureCellRenderer;
 import com.gwt.internetMarket.shared.Category;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**

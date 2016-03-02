@@ -23,14 +23,6 @@ public class GoodServiceImpl extends RemoteServiceServlet implements IGoodServic
         return new CategoriesDaoImpl().getCategories();
     }
 
-    public Category getCategoryByName(String name) {
-        return null;
-    }
-
-    public List<GoodDao> getGoods() {
-        return null;
-    }
-
     public List<GoodDao> getGoodsByName(String name) {
         return new GoodsDaoImpl().getGoods(name);
     }
@@ -43,7 +35,4 @@ public class GoodServiceImpl extends RemoteServiceServlet implements IGoodServic
         return new GoodsDaoImpl().getGoodsByManufacture(manufacture);
     }
 
-    public List<GoodDao> getGoodByAvail(char avail) {
-        return null;
-    }
 }

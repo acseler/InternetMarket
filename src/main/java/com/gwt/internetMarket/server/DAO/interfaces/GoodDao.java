@@ -10,7 +10,5 @@ public interface GoodDao {
     List<com.gwt.internetMarket.shared.GoodDao> getGoodsByManufacture(String manufacture);
     List<com.gwt.internetMarket.shared.GoodDao> getGoodsByCategory(String category);
     List<com.gwt.internetMarket.shared.GoodDao> getGoods(String name);
-    List<com.gwt.internetMarket.shared.GoodDao> getGoods(int price);
-    List<com.gwt.internetMarket.shared.GoodDao> getGoods(char avail);
 
 }
