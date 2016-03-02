@@ -29,7 +29,7 @@ public class GoodDao implements Serializable {
     @Column(name = "G_PRICE")
     private int price;
 
-    @Column(name = "G_DESCRIPTION")
+    @Column(name = "G_DESCRIPTION", length = 1024)
     private String descriprion;
 
     //Can contains only 'y' or 'n' values
