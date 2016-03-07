@@ -22,6 +22,7 @@ import java.util.List;
 
 /**
  * Created by boduill on 24.02.16.
+ * Основной контроллер приложения
  */
 public class AppController implements Presenter, ValueChangeHandler<String> {
     private final HandlerManager eventBus;

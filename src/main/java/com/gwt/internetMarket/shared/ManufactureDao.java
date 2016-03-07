@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 /**
  * Created by boduill on 24.02.16.
+ * Класс сущность для получения производителя из БД
  */
 
 @Entity

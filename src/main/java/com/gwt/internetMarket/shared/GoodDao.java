@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 /**
  * Created by boduill on 24.02.16.
+ * Класс сущность для получения товара из БД
  */
 @Entity
 @Table(name = "GOODS")

@@ -22,11 +22,11 @@ import com.gwt.internetMarket.shared.Category;
 import com.gwt.internetMarket.shared.GoodDao;
 import com.gwt.internetMarket.shared.ManufactureDao;
 
-import javax.lang.model.element.ElementVisitor;
 import java.util.List;
 
 /**
  * Created by boduill on 25.02.16.
+ * Класс Presenter главной страницы
  */
 public class WelcomePagePresenter implements Presenter {
 

@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 /**
  * Created by boduill on 15.02.16.
+ * Класс сущность для получения категории из БД
  */
 @Entity
 @Table(name = "CATEGORIES")

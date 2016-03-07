@@ -6,6 +6,7 @@ import sun.reflect.generics.tree.Tree;
 
 /**
  * Created by boduill on 29.02.16.
+ * Переопределение ресурсов дерева
  */
 public interface CategoryTreeResources extends CellTree.Resources {
 

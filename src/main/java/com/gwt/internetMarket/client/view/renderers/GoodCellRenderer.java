@@ -15,6 +15,7 @@ import com.gwt.internetMarket.shared.GoodDao;
 
 /**
  * Created by boduill on 28.02.16.
+ * Класс шаблон для отрисовки товара
  */
 public class GoodCellRenderer extends AbstractCell<GoodDao> {
 

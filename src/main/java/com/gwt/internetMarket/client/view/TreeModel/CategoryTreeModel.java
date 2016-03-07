@@ -18,6 +18,7 @@ import java.util.List;
 
 /**
  * Created by boduill on 27.02.16.
+ * Класс описывающий модель дерева категорий
  */
 public class CategoryTreeModel implements TreeViewModel, WelcomePagePresenter.HelpTree {
 

@@ -14,6 +14,7 @@ import java.util.ListIterator;
 
 /**
  * Created by boduill on 24.02.16.
+ * Класс для получения и формирования древа категорий
  */
 public class CategoriesDaoImpl implements CategoriesDao {
 

@@ -17,6 +17,7 @@ import com.gwt.internetMarket.shared.ManufactureDao;
 
 /**
  * Created by boduill on 29.02.16.
+ * Класс шаблон для отрисовки производителей
  */
 public class ManufactureCellRenderer extends AbstractCell<ManufactureDao> {
 

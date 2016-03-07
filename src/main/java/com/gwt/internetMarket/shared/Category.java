@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Created by boduill on 26.02.16.
+ * Класс сущность для построения древа категорий
  */
 public class Category implements Serializable {
     private long id;

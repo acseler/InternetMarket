@@ -5,6 +5,7 @@ import com.google.gwt.user.cellview.client.CellTree;
 
 /**
  * Created by boduill on 02.03.16.
+ * Переопределение стилей дерева
  */
 @CssResource.ImportedWithPrefix("gwt-CellTree")
 public interface TreeStyle extends CellTree.Style {

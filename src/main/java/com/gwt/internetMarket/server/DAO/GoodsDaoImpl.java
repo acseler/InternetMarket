@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Created by boduill on 24.02.16.
+ * Класс для получения списка товаров
  */
 public class GoodsDaoImpl implements com.gwt.internetMarket.server.DAO.interfaces.GoodDao {
 

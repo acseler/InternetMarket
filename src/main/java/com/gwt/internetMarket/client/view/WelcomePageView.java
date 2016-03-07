@@ -20,6 +20,7 @@ import com.gwt.internetMarket.shared.ManufactureDao;
 
 /**
  * Created by boduill on 28.02.16.
+ * Представление главной страницы приложения
  */
 public class WelcomePageView extends Composite implements WelcomePagePresenter.Display {
 

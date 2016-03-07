@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Created by boduill on 24.02.16.
+ * Класс для получения списка производителей
  */
 public class ManufacturesDaoImpl implements com.gwt.internetMarket.server.DAO.interfaces.ManufactureDao {
 

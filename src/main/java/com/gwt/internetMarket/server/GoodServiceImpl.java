@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Created by boduill on 26.02.16.
+ * Сервис для получения древа категорий, списка производителей и товаров.
  */
 public class GoodServiceImpl extends RemoteServiceServlet implements IGoodService {
     public List<ManufactureDao> getManufactures() {
